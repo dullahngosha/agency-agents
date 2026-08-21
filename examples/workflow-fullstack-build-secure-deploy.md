@@ -19,6 +19,21 @@ You're building an internal system (e.g. an admin dashboard, a records/ops platf
 | [SRE](../engineering/engineering-sre.md) | Wire up monitoring, alerting, and rollback before go-live |
 | [Reality Checker](../testing/testing-reality-checker.md) | Gate the launch with evidence, not vibes |
 
+## Install This Squad Locally
+
+These agents already exist in this repo — no new agent files needed. To install just this squad on your own machine (not in this cloud session — `scripts/install.sh` writes to your local tool config, so run it where the tool actually lives):
+
+```bash
+git clone https://github.com/dullahngosha/agency-agents.git
+cd agency-agents
+
+# Claude Code: writes to ~/.claude/agents/
+./scripts/install.sh --tool claude-code --agent \
+  software-architect,backend-architect,frontend-developer,application-security-engineer,penetration-tester,devops-automator,sre-site-reliability-engineer,reality-checker
+```
+
+Swap `--tool claude-code` for `codex`, `cursor`, `gemini-cli`, `opencode`, `windsurf`, `qwen`, `zcode`, `copilot`, `vibe`, `aider`, `antigravity`, `osaurus`, `openclaw`, or `hermes` — or `--tool all` to install to every tool `install.sh` detects on your machine. Add `--dry-run` first to preview what would be written, or `--link` to symlink instead of copy so future `git pull`s update the agents in place. Run `./scripts/install.sh --help` for the full option list.
+
 ## The Workflow
 
 ### Phase 1: Architecture + Threat Model (parallel)
